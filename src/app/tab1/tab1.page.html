@@ -1,13 +1,43 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      Eliminação Gaussiana
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-card class="welcome-card">
+<ion-content padding>
+<!-- 
+    <ion-item>
+        <ion-label>Digite o número de variáveis do sistema:</ion-label>
+        <ion-input [(ngModel)]="n"></ion-input>
+    </ion-item>
+     -->
+    <ion-item>
+      <ion-label position="floating">Digite o número de variáveis do sistema</ion-label>
+      <ion-input [(ngModel)]="n"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" [disabled]="!n" (click)=gerarInputs() color="secondary">Gerar</ion-button>
+
+    <div *ngIf="read">
+    <div *ngFor="let val1 of nArr; let i = index">
+      <ion-item *ngFor="let val2 of nArrPlusOne; let j = index">
+          <ion-label position="floating">Valor de A({{ i + 1 }}, {{ j + 1 }})</ion-label>
+          <ion-input type="number" [(ngModel)]="A[i][j]"></ion-input>
+      </ion-item>
+    </div>
+  </div>
+
+  <ion-button expand="block" [disabled]="!read" (click)=surpriseMe() color="secondary">Eliminação Gaussiana</ion-button>
+
+  <div *ngIf="finished">
+      <ion-item *ngFor="let vari of x; let v = index" lines="none">
+          <ion-badge slot="start" color="dark">x{{ v + 1 }}</ion-badge>
+          <ion-label text-wrap>{{ vari }}</ion-label>
+        </ion-item>
+  </div>
+    <!-- <ion-card class="welcome-card">
       <ion-img src="/assets/shapes.svg"></ion-img>
       <ion-card-header>
         <ion-card-subtitle>Get Started</ion-card-subtitle>
@@ -37,5 +67,5 @@
         <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
         <ion-label>Theme Your App</ion-label>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
 </ion-content>
