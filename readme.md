@@ -1,1 +1,1 @@
-# projeto para a matéria de Elementos e Métodos para Eletrônica
+# Projeto para a disciplina de Elementos e Métodos em Eletrônica
